@@ -1,0 +1,90 @@
+<div class="docs-grid-container">
+  <mat-card *ngIf="showBookDocs" class="docs-outer-container">
+    <docs-buttons (onButtonPressed)="toggle($event)"></docs-buttons>
+    <mat-card *ngFor="let book of docs.books" class="docs-container">
+      <mat-card-content>
+        <p>DESCRIPTION:
+          <span>{{book.description}}</span>
+        </p>
+        <hr>
+        <p>METHOD:
+          <span>{{book.method}}</span>
+        </p>
+        <hr>
+        <p>ENDPOINT:
+          <span>{{book.endpoint}}</span>
+        </p>
+        <hr>
+        <p>PARAMS:
+          <span>{{book.params}}</span>
+        </p>
+        <hr>
+        <p>REQUEST PAYLOAD:</p>
+          <pre>{{book.payload | json}}</pre>
+        <hr>
+        <p>RESPONSE: </p>
+        <pre>{{book.response | json}}</pre>
+        <hr>
+      </mat-card-content>
+    </mat-card>
+  </mat-card>
+  <mat-card *ngIf="showUserDocs" class="docs-outer-container">
+    <docs-buttons (onButtonPressed)="toggle($event)"></docs-buttons>
+    <mat-card class="docs-container" *ngFor="let user of docs.users">
+      <mat-card-content>
+        <p>DESCRIPTION:
+          <span>{{user.description}}</span>
+        </p>
+        <hr>
+        <p>METHOD:
+          <span>{{user.method}}</span>
+        </p>
+        <hr>
+        <p>ENDPOINT:
+          <span>{{user.endpoint}}</span>
+        </p>
+        <hr>
+        <p>PARAMS:
+          <span>{{user.params}}</span>
+        </p>
+        <hr>
+        <p>REQUEST PAYLOAD:</p>
+          <pre>{{user.payload | json}}</pre>
+        <hr>
+        <p>RESPONSE: </p>
+        <pre>{{user.response | json}}</pre>
+        <hr>
+      </mat-card-content>
+    </mat-card>
+  </mat-card>
+  <mat-card *ngIf="showBeverageDocs" class="docs-outer-container">
+    <docs-buttons (onButtonPressed)="toggle($event)"></docs-buttons>
+    <mat-card class="docs-container" *ngFor="let bev of docs.beverages">
+      <mat-card-content>
+        <p>DESCRIPTION:
+          <span>{{bev.description}}</span>
+        </p>
+        <hr>
+        <p>METHOD:
+          <span>{{bev.method}}</span>
+        </p>
+        <hr>
+        <p>ENDPOINT:
+          <span>{{bev.endpoint}}</span>
+        </p>
+        <hr>
+        <p>PARAMS:
+          <span>{{bev.params}}</span>
+        </p>
+        <hr>
+        <p>REQUEST PAYLOAD:</p>
+          <pre>{{bev.payload | json}}</pre>
+        <hr>
+        <p>RESPONSE: </p>
+        <pre>{{bev.response | json}}</pre>
+        <hr>
+      </mat-card-content>
+    </mat-card>
+  </mat-card>
+
+</div>
