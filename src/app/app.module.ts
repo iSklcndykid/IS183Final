@@ -28,9 +28,14 @@ import { BeverageService } from './beverages/beverage.service';
 import { BeverageComponent } from './beverages/beverage/beverage.component';
 import { BeveragesComponent } from './beverages/beverages.component';
 import { BeverageCreateComponent } from './beverages/beverage-create/beverage-create.component';
+import { UsersComponent } from './users/users.component';
 
 // users components
-// ...
+import {UserComponent} from './users/user/user.component';
+import {UsersComponent} from './users/users.component';
+import {UserCreateComponent} from './users/user-create/user-create.component';
+import {UserService} from './users/user.service';
+
 
 // Routes
 const appRoutes: Routes = [
@@ -46,7 +51,9 @@ const appRoutes: Routes = [
   { path: 'beverage/:id', component: BeverageComponent },
   { path: 'beverage-create', component: BeverageCreateComponent },
   // users
-  // ...
+  { path: 'users', component: UsersComponent },
+  { path: 'user/:id', component: UserComponent },
+  { path: 'user-create', component: UserCreateComponent },
 ];
 
 @NgModule({
@@ -66,7 +73,9 @@ const appRoutes: Routes = [
     BeverageCreateComponent,
     BeverageComponent
     // users
-    // ...
+   UsersComponent,
+   UserCreateComponent,
+   UserComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +88,7 @@ const appRoutes: Routes = [
   providers: [
     BookService,
     BeverageService
+    UserService
   ],
   bootstrap: [AppComponent]
 })

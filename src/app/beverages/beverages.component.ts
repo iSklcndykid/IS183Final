@@ -12,24 +12,31 @@ export class BeveragesComponent implements OnInit {
 
   beverages: Array<Object> = [];
 
-  constructor(private router: Router, private beverageService: BeverageService) {
-  }
+  constructor(
+    private beverageService: BeverageService,
+    private router: Router) { }
+
 
   async ngOnInit() {
+    this.beverages = [];
     await this.getBeverages();
   }
 
   async getBeverages() {
-    const resp = await this.beverageService.getBeverages();
-    this.beverages = resp;
+    this.beverages = await this.beverageService.getBeverages();
+    console.log(this.beverages)
   }
 
   goToCreate() {
     this.router.navigate(['beverage-create']);
   }
 
-  deleteBeverage(id: string) {
-
+  async deleteBeverage(id: string) {
+    const resp = await this.beverageService.deleteBeverage(id);
+    if (resp) {
+      this.beverages = this.beverages.filter((beverages) => {
+        return beverages['id'] !== id;
+      });
+    }
   }
-
 }
